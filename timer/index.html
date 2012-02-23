@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Transit Timer</title>
+	<link type="text/css" rel="stylesheet" href="timer.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src="timer.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div id="title">transit timer</div>
+	
+	<div>
+		<span id="1" class="button">Moving well</span>
+		<span id="t_well" class="button_timer">0:00</span>
+		<span id="p_well" class="pct"></span>
+	</div>
+	<div>
+		<span id="2" class="button">Slow / Stuck</span>
+		<span id="t_slow" class="button_timer">0:00</span>
+		<span id="p_slow" class="pct"></span>
+	</div>
+	<div>
+		<span id="3" class="button">[Un]Loading</span>
+		<span id="t_load" class="button_timer">0:00</span>
+		<span id="p_load" class="pct"></span>
+	</div>
+	<div>
+		<span id="4" class="button">Red Light</span>
+		<span id="t_red" class="button_timer">0:00</span>
+		<span id="p_red" class="pct"></span>
+	</div>
+	
+	<div id="total">Total - <span id="total_time">0:00</span></div>
+	
+	<div><span id="stop_btn">Stop</span></div>
+	
+</body>
+</html>

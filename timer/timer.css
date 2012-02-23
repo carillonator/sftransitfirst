@@ -1,0 +1,40 @@
+html {
+	font-family: Verdana, Arial, sans-serif;
+	color: #333;
+}
+
+body {
+	padding: 0;
+}
+
+div {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.button, #stop_btn {
+	border: 1px solid #bbbbbb;
+	padding: 7px;
+	padding-bottom: 5px;
+	margin-right: .4em;
+	display: inline-block;
+	width: 8em;
+}
+
+.button:hover, #stop_btn {
+	cursor: pointer;
+}
+
+.selected {
+	background-color: yellow;
+}
+
+#total {
+	font-weight: bold;
+}
+
+.pct {
+	font-weight: bold;
+	color: red;
+	margin-left: .6em;
+}
