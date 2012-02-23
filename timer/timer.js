@@ -14,11 +14,12 @@ $(function() {
 	var first_click = 1;
 	var phase = 0;
 	var stopped = 0;
+	var timer_total;
 
-	$('.button').click(function() {
+	$('.phase_btn').click(function() {
 		
 		if ( stopped == 0 ) {
-			$('.button').removeClass('selected');
+			$('.phase_btn').removeClass('selected');
 			$(this).addClass('selected');
 		}
 		
@@ -33,20 +34,25 @@ $(function() {
 	
 	$('#stop_btn').click(function() {
 		clearInterval(timer_total);
-		$('.button').removeClass('selected');
+		$('.phase_btn').removeClass('selected');
+		$(this).hide();
+		$('#next_btn, #reset_btn').show();
 		stopped = 1;
-		
-		well_pct = Math.round(s_well / s * 100) + "%";
-		slow_pct = Math.round(s_slow / s * 100) + "%";
-		load_pct = Math.round(s_load / s * 100) + "%";
-		red_pct = Math.round(s_red / s * 100) + "%";
-		
-		$('#p_well').html(well_pct);
-		$('#p_slow').html(slow_pct);
-		$('#p_load').html(load_pct);
-		$('#p_red').html(red_pct);
+
+		$('#p_well').html( format_pct(s_well) );
+		$('#p_slow').html( format_pct(s_slow) );
+		$('#p_load').html( format_pct(s_load) );
+		$('#p_red').html( format_pct(s_red) );
 	});
 	
+	$('#reset_btn').click(function() {
+		location.reload();
+	});
+	
+	$('#next_btn').click(function() {
+		$('#page1').hide();
+		$('#page2').show();
+	});
 
 	function every_s() {
 		
@@ -76,6 +82,11 @@ $(function() {
 		if ( secs < 10 ) { secs = "0" + secs };
 		
 		return ( mins + ":" + secs );
+	}
+	
+	function format_pct(count) {
+		pct = Math.round(count / s * 100) + "%";
+		return pct;
 	}
 
 	

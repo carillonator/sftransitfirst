@@ -9,32 +9,59 @@
 </head>
 
 <body>
-	<div id="title">transit timer</div>
+
+	<div id="page1">
+		<div id="title">transit timer</div>
 	
-	<div>
-		<span id="1" class="button">Moving well</span>
-		<span id="t_well" class="button_timer">0:00</span>
-		<span id="p_well" class="pct"></span>
-	</div>
-	<div>
-		<span id="2" class="button">Slow / Stuck</span>
-		<span id="t_slow" class="button_timer">0:00</span>
-		<span id="p_slow" class="pct"></span>
-	</div>
-	<div>
-		<span id="3" class="button">[Un]Loading</span>
-		<span id="t_load" class="button_timer">0:00</span>
-		<span id="p_load" class="pct"></span>
-	</div>
-	<div>
-		<span id="4" class="button">Red Light</span>
-		<span id="t_red" class="button_timer">0:00</span>
-		<span id="p_red" class="pct"></span>
+		<div>
+			<span id="1" class="button phase_btn">Moving well</span>
+			<span id="t_well" class="button_timer">0:00</span>
+			<span id="p_well" class="pct"></span>
+		</div>
+		<div>
+			<span id="2" class="button phase_btn">Slow / Stuck</span>
+			<span id="t_slow" class="button_timer">0:00</span>
+			<span id="p_slow" class="pct"></span>
+		</div>
+		<div>
+			<span id="3" class="button phase_btn">[Un]Loading</span>
+			<span id="t_load" class="button_timer">0:00</span>
+			<span id="p_load" class="pct"></span>
+		</div>
+		<div>
+			<span id="4" class="button phase_btn">Red Light</span>
+			<span id="t_red" class="button_timer">0:00</span>
+			<span id="p_red" class="pct"></span>
+		</div>
+	
+		<div id="total">Total - <span id="total_time">0:00</span></div>
+	
+		<div>
+			<span id="stop_btn" class="button">Stop</span>
+			<span id="next_btn" class="button">Next &gt;</span>
+			<span id="reset_btn" class="button">Reset</span>
+		</div>
 	</div>
 	
-	<div id="total">Total - <span id="total_time">0:00</span></div>
+	<div id="page2">
+		<div>Line</div>
+		<select>
+			<option>Select a Line</option>
+		</select>
+		<div>Direction</div>
+		<select>
+			<option>Select a Direction</option>
+		</select>
+		<div>Boarded</div>
+		<select>
+			<option>Select a Stop</option>
+		</select>
+		<div>Exited</div>
+		<select>
+			<option>Select a Stop</option>
+		</select>
+	</div>
 	
-	<div><span id="stop_btn">Stop</span></div>
 	
 </body>
 </html>

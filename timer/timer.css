@@ -12,7 +12,11 @@ div {
 	margin-bottom: 1em;
 }
 
-.button, #stop_btn {
+#page2 {
+	display: none;
+}
+
+.button {
 	border: 1px solid #bbbbbb;
 	padding: 7px;
 	padding-bottom: 5px;
@@ -21,8 +25,8 @@ div {
 	width: 8em;
 }
 
-.button:hover, #stop_btn {
-	cursor: pointer;
+#next_btn, #reset_btn {
+	display: none;
 }
 
 .selected {
