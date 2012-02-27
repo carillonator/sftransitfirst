@@ -53,18 +53,79 @@ $(function() {
 		$('#page1').hide();
 		$('#page2').show();
 		
+		// populate the list of MUNI lines
 		$.ajax({
-			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni', 
-			success: function(data) {
-				data.find('route').each(function() {
+			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni',
+			dataType: 'xml', 
+			success: function(xml) {
+				$(xml).find('route').each(function() {
+					var tag = $(this).attr('tag');
 					var title = $(this).attr('title');
-					console.log(title);
+					var element = '<option value="' + tag + '">' + title + '</option>'; 
+					$('#line').append(element);
 				});
-			},
-			dataType: xml
-			});
+			}
 		});
+	
 	});
+	
+	var route_config;
+	
+	// listen for the Line dropdown to change
+	$('#line').change(function() {
+		var line_tag = $(this).children(":selected").attr("value");
+
+		$.ajax({
+			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r=' + line_tag,
+			dataType: 'xml', 
+			success: function(xml) {
+			
+				// populate the Direction dropdown
+				$(xml).find('direction').each(function() {
+					var tag = $(this).attr('tag');
+					var title = $(this).attr('title');
+					var element = '<option value="' + tag + '">' + title + '</option>'; 
+					$('#direction').append(element);
+				});
+				
+				// save the stop tags and titles
+				$(xml).find('stop').each(function() {
+					var tag = $(this).attr('tag');
+					var title = $(this).attr('title');
+					$('#boarded').data(tag,title);
+				});
+				
+				route_config = $(xml);
+			}
+		});
+		
+		
+	});
+	
+	// listen for the Direction dropdown to change
+	$('#direction').change(function() {
+		var dir_tag = $(this).children(":selected").attr("value");
+		
+		// this is broken
+		var finder = 'direction[tag=' + dir_tag;
+		route_config.find(finder).children("stop").each(function() {
+			var stop_tag = $(this).attr("tag");
+			var stop = $('#boarded').data(stop_tag);
+			var element = '<option value="' + stop_tag + '">' + stop + '</option>'; 
+			$('#boarded, #exited').append(element);
+		});		
+	
+	});
+	
+	// listen for the Boarded dropdown to change
+	$('#boarded').change(function() {
+		var stop_tag = $(this).children(":selected").attr("value");
+		
+		$('#exited').children("option").removeAttr("selected");
+		$('#exited').find("option").attr("value",stop_tag).attr("selected","selected");
+	
+	});
+	
 
 	function every_s() {
 		
@@ -100,6 +161,13 @@ $(function() {
 		pct = Math.round(count / s * 100) + "%";
 		return pct;
 	}
-
+	
+	function get_xml(url) {
+		
+		
+		
+		
+		
+	}
 	
 });
