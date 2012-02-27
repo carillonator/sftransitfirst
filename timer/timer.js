@@ -52,6 +52,18 @@ $(function() {
 	$('#next_btn').click(function() {
 		$('#page1').hide();
 		$('#page2').show();
+		
+		$.ajax({
+			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni', 
+			success: function(data) {
+				data.find('route').each(function() {
+					var title = $(this).attr('title');
+					console.log(title);
+				});
+			},
+			dataType: xml
+			});
+		});
 	});
 
 	function every_s() {
