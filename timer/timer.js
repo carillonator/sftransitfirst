@@ -5,6 +5,9 @@ $(function() {
 	var ts = $('#t_slow');
 	var tl = $('#t_load');
 	var tr = $('#t_red');
+	var dd = $('#direction');
+	var bb = $('#boarded');
+	var ee = $('#exited');
 	var start_time = 0;
 	var s = 0;
 	var s_well = 0;
@@ -74,7 +77,8 @@ $(function() {
 	// listen for the Line dropdown to change
 	$('#line').change(function() {
 		var line_tag = $(this).children(":selected").attr("value");
-
+		dd.empty().append('<option value="select">Select a Direction...</option>');
+		
 		$.ajax({
 			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r=' + line_tag,
 			dataType: 'xml', 
@@ -85,14 +89,14 @@ $(function() {
 					var tag = $(this).attr('tag');
 					var title = $(this).attr('title');
 					var element = '<option value="' + tag + '">' + title + '</option>'; 
-					$('#direction').append(element);
+					dd.append(element);
 				});
 				
 				// save the stop tags and titles
 				$(xml).find('stop').each(function() {
 					var tag = $(this).attr('tag');
 					var title = $(this).attr('title');
-					$('#boarded').data(tag,title);
+					bb.data(tag,title);
 				});
 				
 				route_config = $(xml);
@@ -103,27 +107,30 @@ $(function() {
 	});
 	
 	// listen for the Direction dropdown to change
-	$('#direction').change(function() {
+	dd.change(function() {
 		var dir_tag = $(this).children(":selected").attr("value");
+		bb.empty();
+		ee.empty();
 		
-		// this is broken
-		var finder = 'direction[tag=' + dir_tag;
-		route_config.find(finder).children("stop").each(function() {
+		route_config.find('direction[tag="' + dir_tag + '"]').children("stop").each(function() {
 			var stop_tag = $(this).attr("tag");
-			var stop = $('#boarded').data(stop_tag);
+			var stop = bb.data(stop_tag);
 			var element = '<option value="' + stop_tag + '">' + stop + '</option>'; 
-			$('#boarded, #exited').append(element);
+			bb.append(element);
+			ee.append(element);
 		});		
+		
+		ee.children(':eq(1)').attr('selected','selected');
 	
 	});
 	
 	// listen for the Boarded dropdown to change
-	$('#boarded').change(function() {
+	bb.change(function() {
 		var stop_tag = $(this).children(":selected").attr("value");
 		
-		$('#exited').children("option").removeAttr("selected");
-		$('#exited').find("option").attr("value",stop_tag).attr("selected","selected");
-	
+		ee.children("option").removeAttr("selected");
+		ee.find('option[value="' + stop_tag + '"]').next().attr("selected","selected").prevAll().remove();
+			
 	});
 	
 
@@ -169,5 +176,7 @@ $(function() {
 		
 		
 	}
+	
+
 	
 });
