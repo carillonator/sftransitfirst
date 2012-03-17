@@ -31,7 +31,7 @@ $(function() {
 		if ( first_click == 1 ) {	
 			timer_total = setInterval(every_s, 1000);
 			first_click = 0;
-			start_time = new Date();
+			start_time = new Date().toString();
 		}
 	});
 	
@@ -133,6 +133,22 @@ $(function() {
 			
 	});
 	
+	// listen for the Submit button to be clicked
+	$('#submit_btn').click(function() {
+		
+		var line = $('#line').children(":selected").attr("value");
+		var boarded = bb.children(":selected").attr("value");
+		var exited = ee.children(":selected").attr("value");
+		var direction = dd.children(":selected").attr("value");
+		
+		console.log(line);
+		console.log(direction);
+		console.log(boarded);
+		console.log(exited);
+		console.log(start_time);
+		console.log(s_well + ' ' + s_slow + ' ' + s_load + ' ' + s_red);
+		
+	});
 
 	function every_s() {
 		
