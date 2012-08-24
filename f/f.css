@@ -1,0 +1,59 @@
+        @media only screen and (min-width: 600px){
+            .ui-page {
+                width: 600px !important;
+                margin: 0 auto !important;
+                position: relative !important;
+                /*border-right: 5px #666 outset !important;
+                border-left: 5px #666 outset !important;*/
+            }
+        }
+
+body {
+	padding-bottom: 10px;
+}
+
+#stop_select {
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-bottom: 16px;
+}
+
+#intro {
+	margin: 10px;
+	color: #444;
+}
+
+.pred_line {
+	position: relative;
+	font-weight: bold;
+	margin-left: 6px;
+	margin-top: 18px;
+}
+
+#preds_out {
+	display: none;
+}	
+
+.sc_image img {
+	display: block;
+	margin-left: 48px;
+}
+
+.sc_num {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #aaa;
+	font-size: 14px;
+}
+
+.sc_eta {
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 30px;
+}
+
+#footer {
+	min-height: 12px;
+}
