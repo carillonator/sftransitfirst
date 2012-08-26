@@ -3,13 +3,17 @@
                 width: 600px !important;
                 margin: 0 auto !important;
                 position: relative !important;
-                /*border-right: 5px #666 outset !important;
-                border-left: 5px #666 outset !important;*/
+                border-right: 3px #666 outset !important;
+                border-left: 3px #666 outset !important;
             }
         }
 
 body {
 	padding-bottom: 10px;
+}
+
+#buttons .ui-btn-text {
+	font-size: 16px;
 }
 
 #stop_select {
@@ -18,9 +22,26 @@ body {
 	margin-bottom: 16px;
 }
 
+#stop_select .ui-btn:first-child {
+	width: 240px !important;
+}
+
+#select_stop {
+}
+
+#btn_refresh {
+	display: none;
+	height: 39px;
+	width: 38px;
+	margin-left: 10px;
+}
+
 #intro {
 	margin: 10px;
+	margin-top: 46px;
 	color: #444;
+	text-align: center;
+	font-size: 120%;
 }
 
 .pred_line {
@@ -28,6 +49,7 @@ body {
 	font-weight: bold;
 	margin-left: 6px;
 	margin-top: 18px;
+	min-height: 55px;
 }
 
 #preds_out {

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+"http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<title>F Market &amp; Wharves</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta name = "viewport" content = "width = device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+	<meta name="HandheldFriendly" content="True" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" src="jquery.cookie.js"></script>
+	<script type="text/javascript" src="f.js"></script>
+	<link href="f.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="buttons">
+	<div data-role="navbar">
+		<ul>
+			<li><a id="btn_in" href="#" data-role="button" class="ui-btn-active">Inbound</a></li>
+			<li><a id="btn_out" href="#" data-role="button">Outbound</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="stop_select">
+<div data-type="horizontal" data-role="controlgroup">
+	<select name="select_stop" id="select_stop" data-inline="false">
+	<option value="0" selected="selected">Select Stop</option><option value="gps">Find Nearest Stop</option><option value="3311">17th &amp; Castro</option><option value="5687">Market &amp; Noe</option><option value="5691">Market &amp; Sanchez</option><option value="5662">Market &amp; Church</option><option value="5668">Market &amp; Dolores</option><option value="5675">Market &amp; Guerrero</option><option value="5673">Market &amp; Gough</option><option value="5692">Market &amp; S Van Ness</option><option value="5652">Market &amp; 9th</option><option value="5651">Market &amp; 8th</option><option value="5650">Market &amp; 7th</option><option value="5647">Market &amp; 6th</option><option value="5645">Market &amp; 5th</option><option value="5643">Market &amp; 4th</option><option value="5640">Market &amp; 3rd</option><option value="5685">Market &amp; New Montgomery</option><option value="7264">Market &amp; 1st</option><option value="5682">Market &amp; Main</option><option value="4727">Ferry Plaza</option><option value="4513">Embarcadero &amp; Ferry Term</option><option value="4532">Embarcadero &amp; Washington</option><option value="4503">Embarcadero &amp; Broadway</option><option value="4517">Embarcadero &amp; Green</option><option value="4515">Embarcadero &amp; Greenwich</option><option value="7281">Embarcadero &amp; Sansome</option><option value="4501">Embarcadero &amp; Bay</option><option value="4530">Embarcadero &amp; Stockton</option><option value="5174">Jefferson &amp; Powell</option><option value="5175">Jefferson &amp; Taylor</option><option value="35184">Jones &amp; Beach</option>
+	</select>
+	<a id="btn_refresh" href="#" data-role="button" data-icon="refresh" data-iconpos="notext"></a>
+</div>
+</div>
+
+<div id="intro">
+<b> F Market &amp; Wharves</b><br /><br />Realtime Streetcar Arrivals<br /><br />Click on streetcar images to read detailed information from Market Street Railway
+
+	<div data-role="fieldcontain" > 
+		<label for="flip_refresh"><b>Auto-Refresh:</b></label>
+		<select name="flip_refresh" id="flip_refresh" data-role="slider" data-mini="true">
+			<option value="false">Off</option>
+			<option value="true" selected="selected">1 min</option>
+		</select>
+	</div>
+
+</div>
+
+<div id="preds_in"></div>
+
+<div id="preds_out"></div>
+
+<div id="footer"></div>
+
+</body>
+</html>
