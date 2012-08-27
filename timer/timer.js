@@ -9,6 +9,7 @@ $(function() {
 	var bb = $('#boarded');
 	var ee = $('#exited');
 	var start_time = 0;
+	var start_epoch = 0;
 	var s = 0;
 	var s_well = 0;
 	var s_slow = 0;
@@ -22,8 +23,8 @@ $(function() {
 	$('.phase_btn').click(function() {
 		
 		if ( stopped == 0 ) {
-			$('.phase_btn').removeClass('selected');
-			$(this).addClass('selected');
+			$('.phase_btn').removeClass('ui-btn-active');
+			$(this).addClass('ui-btn-active');
 		}
 		
 		phase = $(this).attr("id");
@@ -32,14 +33,16 @@ $(function() {
 			timer_total = setInterval(every_s, 1000);
 			first_click = 0;
 			start_time = new Date().toString();
+			start_epoch = start_time.getTime();
+			//alert("This page stay in the foreground for the timer to run (working on a fix)");
 		}
 	});
 	
 	$('#stop_btn').click(function() {
 		clearInterval(timer_total);
-		$('.phase_btn').removeClass('selected');
+		$('.phase_btn').removeClass('ui-btn-active');
 		$(this).hide();
-		$('#next_btn, #reset_btn').show();
+		$('#next_btn, #reset_btn').show(); //.button('refresh');
 		stopped = 1;
 
 		$('#p_well').html( format_pct(s_well) );
@@ -147,6 +150,29 @@ $(function() {
 		console.log(exited);
 		console.log(start_time);
 		console.log(s_well + ' ' + s_slow + ' ' + s_load + ' ' + s_red);
+
+		$.ajax({
+			type: 'POST',
+			url: 'timer_data.pl',
+			data: {
+				line: line,
+				dir: direction,
+				boarded: boarded,
+				exited: exited,
+				well: s_well,
+				slow: s_slow,
+				load: s_load,
+				red: s_red,
+				time: start_epoch
+			},
+			success: function(data) {
+				console.log(data);
+			},
+			error: function(data) {
+				console.log(data);
+			}
+			
+		});
 		
 	});
 
@@ -184,15 +210,5 @@ $(function() {
 		pct = Math.round(count / s * 100) + "%";
 		return pct;
 	}
-	
-	function get_xml(url) {
-		
-		
-		
-		
-		
-	}
-	
-
 	
 });

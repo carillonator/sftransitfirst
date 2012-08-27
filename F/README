@@ -1,0 +1,7 @@
+Files for the F streetcar arrivals mobile app currently hosted at http://sftransitfirst.org/F
+
+The app requires images in img/, not included in this repo (from Market Street Railway), and jquery.cookie.js from https://github.com/carhartl/jquery-cookie.
+
+Eventually, all files should be combined into one for efficiency. 
+
+

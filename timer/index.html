@@ -1,69 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Transit Timer</title>
+	<title>MUNI Timer</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta name = "viewport" content = "width = device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+	<meta name="HandheldFriendly" content="True" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="timer.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 	<script src="timer.js" type="text/javascript"></script>
 </head>
 
 <body>
 
-	<div id="page1">
-		<div id="title">transit timer</div>
-	
-		<div>
-			<span id="1" class="button phase_btn">Moving well</span>
-			<span id="t_well" class="button_timer">0:00</span>
-			<span id="p_well" class="pct"></span>
-		</div>
-		<div>
-			<span id="2" class="button phase_btn">Slow / Stuck</span>
-			<span id="t_slow" class="button_timer">0:00</span>
-			<span id="p_slow" class="pct"></span>
-		</div>
-		<div>
-			<span id="3" class="button phase_btn">[Un]Loading</span>
-			<span id="t_load" class="button_timer">0:00</span>
-			<span id="p_load" class="pct"></span>
-		</div>
-		<div>
-			<span id="4" class="button phase_btn">Red Light</span>
-			<span id="t_red" class="button_timer">0:00</span>
-			<span id="p_red" class="pct"></span>
-		</div>
-	
-		<div id="total">Total - <span id="total_time">0:00</span></div>
-	
-		<div>
-			<span id="stop_btn" class="button">Stop</span>
-			<span id="next_btn" class="button">Next &gt;</span>
-			<span id="reset_btn" class="button">Reset</span>
-		</div>
+<div id="page1">
+
+	<div data-role="controlgroup">
+		<a id="1" href="#" data-role="button" class="phase_btn">Moving well<span id="p_well" class="pct"></span><span id="t_well" class="button_timer">0:00</span></a>
+		<a id="2" href="#" data-role="button" class="phase_btn">Slow / Stuck<span id="p_slow" class="pct"></span><span id="t_slow" class="button_timer">0:00</span></a>
+		<a id="3" href="#" data-role="button" class="phase_btn">Doors open<span id="p_load" class="pct"></span><span id="t_load" class="button_timer">0:00</span></a>
+		<a id="4" href="#" data-role="button" class="phase_btn">Red light<span id="p_red" class="pct"></span><span id="t_red" class="button_timer">0:00</span></a>
+
 	</div>
+	<div id="total">Total - <span id="total_time">0:00</span></div>
+
+<a id="stop_btn" href="#" data-role="button">Stop</a>
+
+	<div data-role="controlgroup">
+		<a id="next_btn" href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Next</a>
+		<a id="reset_btn" href="#" data-role="button" data-icon="back">Reset</a>
+	</div>
+
+</div>
 	
-	<div id="page2">
-		<div>Line</div>
+<div id="page2">
 		<select id="line">
 			<option value="select">Select a Line...</option>
 		</select>
-		<div>Direction</div>
 		<select id="direction">
 			<option value="select">Select a Direction...</option>
 		</select>
-		<div>Boarded</div>
 		<select id="boarded">
-			<option value="select">Select a Stop...</option>
+			<option value="select">Boarded Stop...</option>
 		</select>
-		<div>Exited</div>
 		<select id="exited">
-			<option value="select">Select a Stop...</option>
+			<option value="select">Exited Stop...</option>
 		</select>
 		<div>
 			<button id="submit_btn" type="button">Submit Anonymous Info</button>
 		</div>
-	</div>
+</div>
 	
 	
 </body>

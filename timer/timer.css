@@ -3,34 +3,30 @@ html {
 	color: #333;
 }
 
-body {
-	padding: 0;
-}
-
-div {
-	margin-top: 1em;
-	margin-bottom: 1em;
+@media only screen and (min-width: 600px){
+    .ui-page {
+	width: 600px !important;
+	margin: 0 auto !important;
+	position: relative !important;
+	border-right: 3px #666 outset !important;
+	border-left: 3px #666 outset !important;
+    }
 }
 
 #page2 {
 	display: none;
 }
 
-.button {
-	border: 1px solid #bbbbbb;
-	padding: 7px;
-	padding-bottom: 5px;
-	margin-right: .4em;
-	display: inline-block;
-	width: 8em;
+.phase_btn {
+	text-align: left;
+}
+
+.button_timer {
+	float: right;
 }
 
 #next_btn, #reset_btn {
-	display: none;
-}
-
-.selected {
-	background-color: yellow;
+/*	display: none;*/
 }
 
 #total {
