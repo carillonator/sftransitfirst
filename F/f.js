@@ -75,14 +75,21 @@ select_stop.change(function() {
 			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r=F&s=' + stop,
 			dataType: 'xml', 
 			success: function(xml) {
-				$(xml).find('prediction').each(function() {
+
+				var predictions = $(xml).find('prediction');
+
+				// sometimes there will be multiple sets of predictions, so they need to be sorted
+				predictions.sort(function(a,b) {
+					return (parseInt($(a).attr('minutes')) - parseInt($(b).attr('minutes')));
+				}); 
+				predictions.each(function() {
 					var mins = $(this).attr('minutes');
 					var veh = $(this).attr('vehicle');
 					if ( veh > 2000 ) { veh = "bus"; }
 					var predline = '<div class="pred_line"><div class="sc_image"><a href="http://www.streetcar.org/streetcars/' + veh + '"><img src="img/' + veh + '.png" /></a></div><div class="sc_eta">' + mins + '</div><div class="sc_num">#' + veh +'</div></div>';
 					active_dir.append(predline);
 				});
-				
+
 				// go back and invalidate links on buses
 				active_dir.find('a[href$="bus"]').attr('href','#');
 
