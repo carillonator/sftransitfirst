@@ -122,31 +122,6 @@ sub get_cache {
 		logz "cache expired or absent, rebuilding";
 		return ();
 	}
-
-#	# find out how old the cache is
-#	my $cache_age_select = $dbh->prepare("SELECT UNIX_TIMESTAMP(NOW()) - MAX(reported) FROM hs_loccache");
-#	$cache_age_select->execute;
-#	my @cache_age = $cache_age_select->fetchrow_array;	
-#	my $cache_age = shift @cache_age;
-#
-#	if ( !$cache_age ) { # table empty 
-#		logz "no cache found in database";
-#		return ();
-#	} elsif ( $cache_age < $stale ) { # the cache is fresh
-#		my $cache_select = $dbh->prepare("SELECT vehid,lat,lon,reported,run,line from hs_loccache");
-#		$cache_select->execute;
-#
-#		my %ret;
-#		while ( my @row = $cache_select->fetchrow_array ) {
-#			my $vehid = shift @row;
-#			$ret{ $vehid } = \@row;
-#		}
-#		
-#		return %ret;
-#	} else {
-#		logz "cache is stale - $cache_age seconds";
-#		return ();
-#	}
 }
 
 sub get_new {
@@ -194,14 +169,5 @@ sub save_cache {
 	my %vehs = %{ $_[0] };
 
 	$memd->set( "muni_vehs" , \%vehs , $stale ) || warn "could not write to memcached";
-
-#	# always clear the cache first
-#	$dbh->do("TRUNCATE TABLE hs_loccache") || warn "could not truncate cache table\n";
-#	my $cache_insert = $dbh->prepare("INSERT INTO hs_loccache (vehid,lat,lon,reported,run,line) VALUES (?,?,?,?,?,?)");
-#	
-#	for my $veh ( keys %vehs ) {
-#		$cache_insert->execute( $veh, @{$vehs{$veh}} ) || warn "could not insert row into cache table\n";	
-#	}
 }
-
 
