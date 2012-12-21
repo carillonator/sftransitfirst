@@ -55,12 +55,9 @@ dir_btns.click(function() {
 select_stop.change(function() {
 
 	clearInterval(refresh_timer);
-	preds_in.empty();
-	preds_out.empty();
+	preds.empty();
 	intro.hide();
 	refresh.show();
-
-	var active_dir = ( btn_out.hasClass('ui-btn-active') ) ? preds_out : preds_in;
 
 	var stop = select_stop.val();
 	if ( stop != 0 && stop != "gps" ) {
@@ -80,11 +77,11 @@ select_stop.change(function() {
 					var veh = $(this).attr('vehicle');
 					if ( veh > 2000 ) { veh = "bus"; }
 					var predline = '<div class="pred_line"><div class="sc_image"><a href="http://www.streetcar.org/streetcars/' + veh + '"><img src="img/' + veh + '.png" /></a></div><div class="sc_eta">' + mins + '</div><div class="sc_num">#' + veh +'</div></div>';
-					active_dir.append(predline);
+					preds.append(predline);
 				});
 
 				// go back and invalidate links on buses
-				active_dir.find('a[href$="bus"]').attr('href','#');
+				preds.find('a[href$="bus"]').attr('href','#');
 
 				// auto-refresh
 				if (refresh_active) {
@@ -104,7 +101,7 @@ select_stop.change(function() {
 
 			var mindist = 999999;
 			var minstop = 0;
-			var stoplist = ( active_dir == preds_in ) ? ib_stops : ob_stops;
+			var stoplist = ( btn_in.hasClass("ui-btn-active") ) ? ib_stops : ob_stops;
 			for ( var k in stoplist ) {
 				var tag = stoplist[k];
 				var dist = Math.sqrt( Math.pow((lat - lats[tag]),2) + Math.pow((lon - longs[tag]),2) );	
