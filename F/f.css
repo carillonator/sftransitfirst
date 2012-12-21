@@ -52,10 +52,6 @@ body {
 	min-height: 55px;
 }
 
-#preds_out {
-	display: none;
-}	
-
 .sc_image img {
 	display: block;
 	margin-left: 48px;
