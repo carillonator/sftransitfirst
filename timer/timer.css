@@ -1,6 +1,14 @@
+
+
+
 html {
 	font-family: Verdana, Arial, sans-serif;
 	color: #333;
+	height:  100%;
+}
+
+body {
+	height: 100%;
 }
 
 @media only screen and (min-width: 600px){
@@ -13,28 +21,82 @@ html {
     }
 }
 
+#page1 {
+	padding-top: 20px;
+}
+
 #page2 {
+	padding-top: 20px;
 	display: none;
+}
+
+#page3 {
+	display: none;
+}
+
+#page2 div {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 24px;
 }
 
 .phase_btn {
 	text-align: left;
+	margin-left: 10px !important;
+	margin-right: 10px !important;
 }
 
 .button_timer {
 	float: right;
 }
 
-#next_btn, #reset_btn {
-/*	display: none;*/
+#p1_bottom_btns {
+	margin-top: 24px;
+}
+
+#p1_bottom_btns a {
+	visibility: hidden;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#next_btn {
+	background: #DEFFE7;
 }
 
 #total {
 	font-weight: bold;
+	text-align: center;
+	margin-top: 16px;
 }
 
 .pct {
 	font-weight: bold;
 	color: red;
 	margin-left: .6em;
+}
+
+#stop_btn {
+	margin-left:  20px;	
+	margin-right: 20px;
+	margin-top: 24px;
+	background: red !important;
+	color:  white;
+}
+
+#submit_btn {
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: 50px;
+	background: #DEFFE7;
+}
+
+#pie {
+	width: 80%;
+	height:  600px;
+}
+
+#map_canvas {
+	height: 100%; 
+	width:  100%;
 }

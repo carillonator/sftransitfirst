@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/F/[0-9]+$ [NC]
+RewriteRule ([0-9]+)$ /F/index.html?s=$1
+

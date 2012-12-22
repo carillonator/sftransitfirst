@@ -1,9 +1,12 @@
 #!/usr/bin/perl -w
 
+use POSIX qw(strftime);
 use strict;
 use DBI;
 
 my ($line,$boarded,$exited,$dir,$time,$well,$slow,$load,$red);
+
+print "Content-type: text/html\n\n";
 
 # get data POSTed by the webpage
 get_post_data();
@@ -29,17 +32,15 @@ sub get_post_data {
 
 }
 
-
-my $time = strftime( '%Y-%m-%d %X', localtime($time/1000));
-
-my @values = [$time,$line,$dir,$boarded,$exited,$well,$slow,$load,$red];
+# format time for mysql
+$time = strftime( '%Y-%m-%d %X', localtime($time/1000-3600));
 
 my $mysql = DBI->connect("DBI:mysql:database=bicyclel_transit;host=localhost","bicyclel_transit", "streetcar")
-			|| print "could not connect to database";
+	|| print "could not connect to database\n";
 
-my $insert = $mysql->do("INSERT INTO muni_timer (time,line,direction,boarded,exited,well,slow,loading,red) VALUES (?,?,?,?,?,?,?,?,?)",undef,@values); 
-
+my $insert = $mysql->do("INSERT INTO muni_timer (time,line,direction,boarded,exited,well,slow,loading,red) VALUES (?,?,?,?,?,?,?,?,?)",undef,$time,$line,$dir,$boarded,$exited,$well,$slow,$load,$red); 
 print "error logging to database" if ( $insert != 1 );
 
 $mysql->disconnect;
+
 
