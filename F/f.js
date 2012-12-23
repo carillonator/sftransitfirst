@@ -20,6 +20,7 @@ var pathname = window.location.pathname;
 var re = /\/(\d+)$/;
 var bmArr = re.exec(pathname) ;
 var bookmark = ( bmArr ) ? bmArr[1] : null;
+bookmark = parseInt(bookmark);
 
 // disable auto-refresh if cookie says to
 if ( !refresh_active ) {
@@ -51,6 +52,7 @@ $.fn.refresh_preds = function() {
 	//refresh.buttonMarkup({ theme: "e" }).button('refresh');
 }
 
+// listen for direction buttons being clicked
 dir_btns.click(function() {
 
 	clearInterval(refresh_timer);
@@ -104,6 +106,8 @@ select_stop.change(function() {
 
 				// set the browser URL so it can be bookmarked
 				history.pushState(null,"F Market & Wharves", "/F/" + stop );
+
+				// set the window title to the stop
 
 				// auto-refresh
 				if (refresh_active) {
@@ -159,7 +163,15 @@ $('#flip_hidebus').change(function() {
 
 // if a stop was passed in on the URL and we have a record of it, go straight there
 if ( bookmark && lats[bookmark] ) {
-	select_stop.val(bookmark).selectmenu('refresh', true).change();
+
+	// if outbound, highlight the button and set the correct stop list 
+	if ( ob_stops.indexOf(bookmark) >= 0 ) {
+		btn_out.click();
+		select_stop.html(ob_opts);
+	}
+
+	select_stop.val(bookmark).selectmenu('refresh',true).change();
+
 }
 
 });
