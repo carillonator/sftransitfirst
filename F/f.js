@@ -108,6 +108,11 @@ select_stop.change(function() {
 				history.pushState(null,"F Market & Wharves", "/F/" + stop );
 
 				// set the window title to the stop
+				var direction = ( ib_stops.indexOf(bookmark) >= 0 ) ? "Inbound" : "Outbound" ;
+				var stop_desc = $('#select_stop').children('option[value=' + stop + ']' ).html();
+				var title = "F " + direction + " - " + stop_desc;
+				document.title = title;
+				
 
 				// auto-refresh
 				if (refresh_active) {
