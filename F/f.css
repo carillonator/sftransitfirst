@@ -34,6 +34,11 @@ body {
 	height: 39px;
 	width: 38px;
 	margin-left: 10px;
+	padding-left: 6px;
+}
+
+#btn_refresh span span.ui-icon {
+	margin-right: 3px !important;	
 }
 
 #intro {

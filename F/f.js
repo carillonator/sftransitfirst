@@ -13,7 +13,7 @@ var lats = {};
 var longs = {};
 var refresh_timer;
 var refresh_active = ( $.cookie('refresh') == 0 ) ? 0 : 1; 
-var hidebus_active = ( $.cookie('hidebus') == 0 ) ? 0 : 1; 
+var hidebus_active = ( $.cookie('hidebus') == 1 ) ? 1 : 0; 
 
 // check if stop number passed in URL
 var pathname = window.location.pathname;
@@ -28,8 +28,8 @@ if ( !refresh_active ) {
 }
 
 // hide buses if cookie says to
-if ( !hidebus_active ) {
-	flip_hidebus.val('false').slider('refresh');
+if ( hidebus_active ) {
+	flip_hidebus.val('true').slider('refresh');
 }
 
 // stop codes and coordinates
@@ -47,9 +47,9 @@ select_stop.val("0").selectmenu('refresh',true);
 
 // function called by autorefresh
 $.fn.refresh_preds = function() {
+	refresh.buttonMarkup({ theme: 'e' }).removeClass('ui-btn-corner-all ui-btn-hover-c').addClass('ui-btn-up-c');
 	select_stop.change();
-	//try to get an autorefresh indicator working
-	//refresh.buttonMarkup({ theme: "e" }).button('refresh');
+	setTimeout(function(){ refresh.buttonMarkup({ theme: 'c' }).removeClass('ui-btn-corner-all ui-btn-hover-c').addClass('ui-btn-up-c'); },1500);
 }
 
 // listen for direction buttons being clicked
@@ -108,11 +108,13 @@ select_stop.change(function() {
 				history.pushState(null,"F Market & Wharves", "/F/" + stop );
 
 				// set the window title to the stop
-				var direction = ( ib_stops.indexOf(bookmark) >= 0 ) ? "Inbound" : "Outbound" ;
+				var direction = ( ib_stops.indexOf(bookmark) >= 0 ) ? "IB" : "OB" ;
 				var stop_desc = $('#select_stop').children('option[value=' + stop + ']' ).html();
-				var title = "F " + direction + " - " + stop_desc;
+				stop_desc = stop_desc.replace("Market","Mkt");
+				stop_desc = stop_desc.replace("Embarcadero","Emb");
+				stop_desc = stop_desc.replace("&amp;","&");
+				var title = "F " + direction + " " + stop_desc;
 				document.title = title;
-				
 
 				// auto-refresh
 				if (refresh_active) {
@@ -151,7 +153,7 @@ select_stop.change(function() {
 // refresh button listener
 $('#btn_refresh').click(function() {
 	clearInterval(refresh_timer);
-	select_stop.change();
+	$.fn.refresh_preds();
 });
 
 // listen for the autorefresh slider changing, set cookie appropriately
