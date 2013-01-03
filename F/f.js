@@ -39,8 +39,8 @@ lats['5184'] = 37.8072499;lats['3092'] = 37.80741;lats['3095'] = 37.8078399;lats
 longs['5184'] = -122.41737;longs['3092'] = -122.4141199;longs['3095'] = -122.41081;longs['4502'] = -122.4060299;longs['4529'] = -122.4033099;longs['4516'] = -122.40103;longs['4518'] = -122.39892;longs['4504'] = -122.3974299;longs['4534'] = -122.3951799;longs['7283'] = -122.3937699;longs['4726'] = -122.39387;longs['5669'] = -122.3961799;longs['5657'] = -122.39907;longs['5639'] = -122.40131;longs['5678'] = -122.4033699;longs['5694'] = -122.40574;longs['5655'] = -122.40799;longs['5695'] = -122.4102299;longs['5656'] = -122.41244;longs['5676'] = -122.41438;longs['5679'] = -122.4162099;longs['5696'] = -122.41918;longs['5672'] = -122.4217699;longs['5681'] = -122.4246699;longs['5659'] = -122.4261499;longs['5661'] = -122.42863;longs['5690'] = -122.43071;longs['5686'] = -122.43281;longs['33311'] = -122.43487;longs['5662'] = -122.42915;longs['5668'] = -122.4270999;longs['5675'] = -122.42497;longs['5673'] = -122.42199;longs['5692'] = -122.41932;longs['5652'] = -122.41634;longs['5651'] = -122.41483;longs['5650'] = -122.41261;longs['5647'] = -122.4104;longs['5645'] = -122.40814;longs['5643'] = -122.40589;longs['5640'] = -122.40352;longs['5685'] = -122.40216;longs['7264'] = -122.39919;longs['5682'] = -122.39663;longs['4727'] = -122.39345;longs['4513'] = -122.39386;longs['4532'] = -122.3956699;longs['4503'] = -122.3978699;longs['4517'] = -122.3993699;longs['4515'] = -122.4011099;longs['7281'] = -122.40323;longs['4501'] = -122.40628;longs['4530'] = -122.41029;longs['5174'] = -122.41336;longs['5175'] = -122.41551;longs['35184'] = -122.41737;longs['3311'] = -122.43487;longs['5687'] = -122.43332;longs['5691'] = -122.43114;
 
 // dropdown options for Inbound and Outbound
-var ob_opts = '<option value="0">Select Stop</option><option value="gps">Find Nearest Stop</option><option value="5184">Jones &amp; Beach</option><option value="3092">Beach &amp; Mason</option><option value="3095">Beach &amp; Stockton</option><option value="4502">Embarcadero &amp; Bay</option><option value="4529">Embarcadero &amp; Sansome</option><option value="4516">Embarcadero &amp; Greenwich</option><option value="4518">Embarcadero &amp; Green</option><option value="4504">Embarcadero &amp; Broadway</option><option value="4534">Embarcadero &amp; Washington</option><option value="7283">Embarcadero &amp; Ferry Building</option><option value="4726">Ferry Plaza</option><option value="5669">Market &amp; Drumm</option><option value="5657">Market &amp; Battery</option><option value="5639">Market &amp; 2nd</option><option value="5678">Market &amp; Kearny</option><option value="5694">Market &amp; Stockton</option><option value="5655">Market &amp; 5th</option><option value="5695">Market &amp; Taylor</option><option value="5656">Market &amp; 7th</option><option value="5676">Market &amp; Hyde</option><option value="5679">Market &amp; Larkin</option><option value="5696">Market &amp; Van Ness Ave</option><option value="5672">Market &amp; Gough</option><option value="5681">Market &amp; Laguna</option><option value="5659">Market &amp; Buchanan</option><option value="5661">Market &amp; Church</option><option value="5690">Market &amp; Sanchez</option><option value="5686">Market &amp; Noe</option><option value="33311">17th &amp; Castro</option>';
-var ib_opts = '<option value="0">Select Stop</option><option value="gps">Find Nearest Stop</option><option value="3311">17th &amp; Castro</option><option value="5687">Market &amp; Noe</option><option value="5691">Market &amp; Sanchez</option><option value="5662">Market &amp; Church</option><option value="5668">Market &amp; Dolores</option><option value="5675">Market &amp; Guerrero</option><option value="5673">Market &amp; Gough</option><option value="5692">Market &amp; S Van Ness</option><option value="5652">Market &amp; 9th</option><option value="5651">Market &amp; 8th</option><option value="5650">Market &amp; 7th</option><option value="5647">Market &amp; 6th</option><option value="5645">Market &amp; 5th</option><option value="5643">Market &amp; 4th</option><option value="5640">Market &amp; 3rd</option><option value="5685">Market &amp; New Montgomery</option><option value="7264">Market &amp; 1st</option><option value="5682">Market &amp; Main</option><option value="4727">Ferry Plaza</option><option value="4513">Embarcadero &amp; Ferry Term</option><option value="4532">Embarcadero &amp; Washington</option><option value="4503">Embarcadero &amp; Broadway</option><option value="4517">Embarcadero &amp; Green</option><option value="4515">Embarcadero &amp; Greenwich</option><option value="7281">Embarcadero &amp; Sansome</option><option value="4501">Embarcadero &amp; Bay</option><option value="4530">Embarcadero &amp; Stockton</option><option value="5174">Jefferson &amp; Powell</option><option value="5175">Jefferson &amp; Taylor</option><option value="35184">Jones &amp; Beach</option>';
+var ob_opts = '<option value="0">Select Stop</option><option value="gps">&#8251; Find Nearest Stop</option><option value="5184">Jones &amp; Beach</option><option value="3092">Beach &amp; Mason</option><option value="3095">Beach &amp; Stockton</option><option value="4502">Embarcadero &amp; Bay</option><option value="4529">Embarcadero &amp; Sansome</option><option value="4516">Embarcadero &amp; Greenwich</option><option value="4518">Embarcadero &amp; Green</option><option value="4504">Embarcadero &amp; Broadway</option><option value="4534">Embarcadero &amp; Washington</option><option value="7283">Embarcadero &amp; Ferry Building</option><option value="4726">Ferry Plaza</option><option value="5669">Market &amp; Drumm</option><option value="5657">Market &amp; Battery</option><option value="5639">Market &amp; 2nd</option><option value="5678">Market &amp; Kearny</option><option value="5694">Market &amp; Stockton</option><option value="5655">Market &amp; 5th</option><option value="5695">Market &amp; Taylor</option><option value="5656">Market &amp; 7th</option><option value="5676">Market &amp; Hyde</option><option value="5679">Market &amp; Larkin</option><option value="5696">Market &amp; Van Ness Ave</option><option value="5672">Market &amp; Gough</option><option value="5681">Market &amp; Laguna</option><option value="5659">Market &amp; Buchanan</option><option value="5661">Market &amp; Church</option><option value="5690">Market &amp; Sanchez</option><option value="5686">Market &amp; Noe</option><option value="33311">17th &amp; Castro</option><option value="J">J Church</option>';
+var ib_opts = '<option value="0">Select Stop</option><option value="gps">&#8251; Find Nearest Stop</option><option value="3311">17th &amp; Castro</option><option value="5687">Market &amp; Noe</option><option value="5691">Market &amp; Sanchez</option><option value="5662">Market &amp; Church</option><option value="5668">Market &amp; Dolores</option><option value="5675">Market &amp; Guerrero</option><option value="5673">Market &amp; Gough</option><option value="5692">Market &amp; S Van Ness</option><option value="5652">Market &amp; 9th</option><option value="5651">Market &amp; 8th</option><option value="5650">Market &amp; 7th</option><option value="5647">Market &amp; 6th</option><option value="5645">Market &amp; 5th</option><option value="5643">Market &amp; 4th</option><option value="5640">Market &amp; 3rd</option><option value="5685">Market &amp; New Montgomery</option><option value="7264">Market &amp; 1st</option><option value="5682">Market &amp; Main</option><option value="4727">Ferry Plaza</option><option value="4513">Embarcadero &amp; Ferry Term</option><option value="4532">Embarcadero &amp; Washington</option><option value="4503">Embarcadero &amp; Broadway</option><option value="4517">Embarcadero &amp; Green</option><option value="4515">Embarcadero &amp; Greenwich</option><option value="7281">Embarcadero &amp; Sansome</option><option value="4501">Embarcadero &amp; Bay</option><option value="4530">Embarcadero &amp; Stockton</option><option value="5174">Jefferson &amp; Powell</option><option value="5175">Jefferson &amp; Taylor</option><option value="35184">Jones &amp; Beach</option><option value="J">J Church</option>';
 
 // for compatibility with back button, clear the dropdown on page load
 select_stop.val("0").selectmenu('refresh',true);
@@ -52,17 +52,17 @@ $.fn.refresh_preds = function() {
 	setTimeout(function(){ refresh.buttonMarkup({ theme: 'c' }).removeClass('ui-btn-corner-all ui-btn-hover-c').addClass('ui-btn-up-c'); },1500);
 }
 
+var active_tab = 'btn_in';
 // listen for direction buttons being clicked
-dir_btns.click(function() {
+$('#dir_bar').on('click','.dir_btn',function(event) {
 
-	clearInterval(refresh_timer);
-
-	if ( $(this).hasClass('ui-btn-active') ) { 
-		// already active, don't do anything
-	} else { // user selected a new direction
-		var new_dir = ( $(this).attr("id") == "btn_in" ) ? ib_opts : ob_opts;
-		select_stop.html(new_dir).selectmenu('refresh', true);
+	var new_dir = $(this).attr("id");
+	if ( new_dir !== active_tab ) {
+		var new_opts = ( new_dir == 'btn_in' ) ? ib_opts : ob_opts;
+		select_stop.html(new_opts).selectmenu('refresh', true);
 		preds.empty();
+		clearInterval(refresh_timer);
+		active_tab = new_dir;
 	}
 });
 
@@ -75,7 +75,7 @@ select_stop.change(function() {
 	refresh.show();
 
 	var stop = select_stop.val();
-	if ( stop != 0 && stop != "gps" ) {
+	if ( stop != 0 && stop != "gps" && stop != "J" ) {
 		$.ajax({
 			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r=F&s=' + stop,
 			dataType: 'xml', 
@@ -122,7 +122,7 @@ select_stop.change(function() {
 				}
 			}
 		});
-	} else if ( stop == "gps" ) {
+	} else if ( stop === "gps" ) {
 
 		if ( !navigator.geolocation ) { 
 			alert("GPS/location data unavailable");
@@ -146,6 +146,28 @@ select_stop.change(function() {
 			select_stop.val("0").selectmenu('refresh',true).change();
 		});
 		}
+	} else if ( stop === "J" ) {
+		
+		var jdir = ( active_tab === 'btn_in' ) ? 'IB' : 'OB' ; 
+		console.log(jdir);
+
+		$.ajax({
+			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r=J&t=0',
+			dataType: 'xml', 
+			success: function(xml) {
+
+				var vehicles = $(xml).find('vehicle[predictable="true"][dirTag*="' + jdir + '"]');
+				vehicles.each(function() {
+
+					var id = $(this).attr('id');
+					var dirtag = $(this).attr('dirTag');
+					preds.append('<div>' + id + ' ' + dirtag + '</div>');
+
+				});
+
+			}
+		});
+
 	}
 
 });
@@ -157,13 +179,13 @@ $('#btn_refresh').click(function() {
 });
 
 // listen for the autorefresh slider changing, set cookie appropriately
-$('#flip_refresh').change(function() {
+flip_refresh.change(function() {
 	refresh_active = ( flip_refresh.val() == "true" ) ? 1 : 0;
 	$.cookie("refresh",refresh_active,{ expires: 365 });
 });
 
 // listen for the hidebus slider changing, set cookie appropriately
-$('#flip_hidebus').change(function() {
+flip_hidebus.change(function() {
 	hidebus_active = ( flip_hidebus.val() == "true" ) ? 1 : 0;
 	$.cookie("hidebus",hidebus_active,{ expires: 365 });
 });
