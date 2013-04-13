@@ -49,7 +49,7 @@ select_stop.val("0").selectmenu('refresh',true);
 $.fn.refresh_preds = function() {
 	refresh.buttonMarkup({ theme: 'e' }).removeClass('ui-btn-corner-all ui-btn-hover-c').addClass('ui-btn-up-c');
 	select_stop.change();
-	setTimeout(function(){ refresh.buttonMarkup({ theme: 'c' }).removeClass('ui-btn-corner-all ui-btn-hover-c').addClass('ui-btn-up-c'); },1500);
+	setTimeout(function(){ refresh.buttonMarkup({ theme: 'c' }).removeClass('ui-btn-corner-all ui-btn-hover-c').addClass('ui-btn-up-c'); },1000);
 }
 
 var active_tab = 'btn_in';
@@ -61,6 +61,7 @@ $('#dir_bar').on('click','.dir_btn',function(event) {
 		var new_opts = ( new_dir == 'btn_in' ) ? ib_opts : ob_opts;
 		select_stop.html(new_opts).selectmenu('refresh', true);
 		preds.empty();
+		refresh.hide();
 		clearInterval(refresh_timer);
 		active_tab = new_dir;
 	}
@@ -105,7 +106,7 @@ select_stop.change(function() {
 				}
 
 				// set the browser URL so it can be bookmarked
-				history.pushState(null,"F Market & Wharves", "/F/" + stop );
+				//history.replaceState(null,"F Market & Wharves", "/F/" + stop );
 
 				// set the window title to the stop
 				var direction = ( ib_stops.indexOf(bookmark) >= 0 ) ? "IB" : "OB" ;
@@ -149,7 +150,6 @@ select_stop.change(function() {
 	} else if ( stop === "J" ) {
 		
 		var jdir = ( active_tab === 'btn_in' ) ? 'IB' : 'OB' ; 
-		console.log(jdir);
 
 		$.ajax({
 			url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r=J&t=0',
@@ -173,8 +173,7 @@ select_stop.change(function() {
 });
 
 // refresh button listener
-$('#btn_refresh').click(function() {
-	clearInterval(refresh_timer);
+refresh.click(function() {
 	$.fn.refresh_preds();
 });
 
