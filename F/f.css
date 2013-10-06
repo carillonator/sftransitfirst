@@ -1,11 +1,12 @@
 @media only screen and (min-width: 600px){
-    .ui-page {
+    .ui-page  {
 	width: 600px !important;
 	margin: 0 auto !important;
 	position: relative !important;
 	border-right: 3px #666 outset !important;
 	border-left: 3px #666 outset !important;
     }
+
 }
 
 body {
@@ -88,6 +89,3 @@ label.ui-slider {
 	font-size: 30px;
 }
 
-#footer {
-	min-height: 12px;
-}
